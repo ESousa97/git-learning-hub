@@ -75,14 +75,14 @@ O Git Learning Hub é projetado como uma **Single-Page Application (SPA)** com u
 ```mermaid
 graph TD
     subgraph "Browser (Client-Side)"
-        A[Usuário] --> B{React App (App.tsx)};
-        B --> C[Header];
-        B --> D[ModuleGrid];
-        D --> E[ModuleCard];
-        B --> F[LessonViewer];
-        F --> G[Terminal Interativo];
-        F --> H[Conteúdo da Lição];
-        B --> I[ProgressDashboard];
+        A[Usuário] --> B{"React App (App.tsx)"}
+        B --> C[Header]
+        B --> D[ModuleGrid]
+        D --> E[ModuleCard]
+        B --> F[LessonViewer]
+        F --> G[Terminal Interativo]
+        F --> H[Conteúdo da Lição]
+        B --> I[ProgressDashboard]
         
         subgraph "Gerenciamento de Estado (React Hooks)"
             J(userProgress)
@@ -93,16 +93,17 @@ graph TD
             L[lessons.ts]
         end
 
-        B -- Gerencia --> J;
-        B -- Gerencia --> K;
-        F -- Atualiza --> J;
-        C -- Lê --> J;
-        I -- Lê --> J;
-        H -- Lê Conteúdo de --> L;
-        G -- Valida Comandos com base em --> L;
+        B -- "Gerencia" --> J
+        B -- "Gerencia" --> K
+        F -- "Atualiza" --> J
+        C -- "Lê" --> J
+        I -- "Lê" --> J
+        H -- "Lê Conteúdo de" --> L
+        G -- "Valida Comandos com base em" --> L
     end
 
-    A -- Interage com --> B;
+    A -- "Interage com" --> B
+
 ```
 
 ## Decisões de Design Chave
