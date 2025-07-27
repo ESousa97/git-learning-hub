@@ -1,62 +1,69 @@
-# JS Game
+# React + TypeScript + Vite
 
-<p align="center" style="font-size: 1.2em; color: #333;">
-    Este é um jogo simples de adivinhação de números, onde o jogador deve adivinhar um número secreto gerado aleatoriamente pelo sistema.
-</p>
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Como Jogar
+Currently, two official plugins are available:
 
-1. Escolha um número entre 1 e 100.
-2. Digite o número no campo de entrada.
-3. Clique no botão "Chutar" para verificar se o número está correto.
-4. O sistema informará se o número secreto é maior ou menor que o número escolhido.
-5. Continue tentando até acertar o número secreto.
-6. Quando acertar, o sistema informará quantas tentativas foram necessárias.
-7. Clique no botão "Novo jogo" para reiniciar o jogo.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Arquivos
+## Expanding the ESLint configuration
 
-### `index.html`
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-<p style="font-size: 1.1em; color: #555;">
-    Este arquivo contém a estrutura HTML do jogo. Ele inclui os elementos necessários para a interface do usuário, como o campo de entrada, botões e mensagens.
-</p>
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-### `app.js`
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-<p style="font-size: 1.1em; color: #555;">
-    Este arquivo contém a lógica do jogo em JavaScript. Ele inclui funções para gerar o número secreto, verificar o chute do jogador, exibir mensagens na tela e reiniciar o jogo.
-</p>
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-### `style.css`
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-<p style="font-size: 1.1em; color: #555;">
-    Este arquivo contém os estilos CSS para a interface do jogo, garantindo uma aparência agradável e responsiva.
-</p>
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## Tecnologias Utilizadas
-
-<p style="font-size: 1.1em; color: #555;">
-    - HTML<br>
-    - CSS<br>
-    - JavaScript<br>
-    - <a href="https://responsivevoice.org/" style="color: #007acc;">ResponsiveVoice</a> para síntese de voz
-</p>
-
-## Como Executar
-
-1. Clone o repositório para o seu ambiente local.
-2. Abra o arquivo `index.html` em um navegador web.
-3. Divirta-se jogando!
-
-## Contribuição
-
-Sinta-se à vontade para contribuir com melhorias para este projeto. Para isso, siga os passos abaixo:
-
-1. Faça um fork deste repositório.
-2. Crie uma branch para a sua feature (`git checkout -b feature/nova-feature`).
-3. Commit suas alterações (`git commit -m 'Adiciona nova feature'`).
-4. Faça um push para a branch (`git push origin feature/nova-feature`).
-5. Abra um Pull Request.
-
----
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
