@@ -16,7 +16,7 @@ O Git Learning Hub é uma aplicação web interativa, concebida como uma platafo
 
 ## Badges Abrangentes
 
-[![Licença MIT](https://img.shields.io/github/license/ESousa97/git-learning-hub?style=for-the-badge)](https://github.com/ESousa97/git-learning-hub/blob/main/LICENSE)
+[![Licença MIT](https://img.shields.io/github/license/ESousa97/git-learning-hub?style=for-the-badge)](./LICENSE)
 [![Issues Abertas](https://img.shields.io/github/issues/ESousa97/git-learning-hub?style=for-the-badge)](https://github.com/ESousa97/git-learning-hub/issues)
 [![Pull Requests Abertas](https://img.shields.io/github/issues-pr/ESousa97/git-learning-hub?style=for-the-badge)](https://github.com/ESousa97/git-learning-hub/pulls)
 [![Último Commit](https://img.shields.io/github/last-commit/ESousa97/git-learning-hub?style=for-the-badge)](https://github.com/ESousa97/git-learning-hub/commits/main)
