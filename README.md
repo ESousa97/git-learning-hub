@@ -27,7 +27,6 @@ O Git Learning Hub é uma aplicação web interativa, concebida como uma platafo
 
 * [Introdução e Motivação](#introdução-e-motivação)
 * [🔗 Acesso à Plataforma](#-acesso-à-plataforma)
-* [🎬 Demonstração Visual](#-demonstração-visual)
 * [Arquitetura do Sistema](#arquitetura-do-sistema)
 * [Decisões de Design Chave](#decisões-de-design-chave)
 * [✨ Funcionalidades Detalhadas (com Casos de Uso)](#-funcionalidades-detalhadas-com-casos-de-uso)
@@ -61,12 +60,6 @@ O Git Learning Hub foi criado para endereçar precisamente essa lacuna. A motiva
 A plataforma Git Learning Hub está disponível publicamente e pode ser acessada diretamente pelo navegador, sem necessidade de instalação. Explore os módulos de aprendizado, pratique em um terminal seguro e acompanhe seu progresso.
 
 [🚀 Acesse o Git Learning Hub aqui](https://git-learning-hub.vercel.app)
-
-## 🎬 Demonstração Visual
-
-<p align="center">
-  <img src="./assets/gitlearninghub.gif" alt="Demonstração da API InstaBytes Backend em Funcionamento" width="800">
-</p>
 
 ## Arquitetura do Sistema
 
