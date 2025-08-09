@@ -63,7 +63,7 @@ A plataforma Git Learning Hub está disponível publicamente e pode ser acessada
 
 <div align="center">
 
-[imagem](./assets/git-learning-hub2.gif)
+![imagem](./assets/git-learning-hub2.gif)
   
 </div>
 
