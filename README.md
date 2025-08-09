@@ -61,6 +61,12 @@ A plataforma Git Learning Hub está disponível publicamente e pode ser acessada
 
 [🚀 Acesse o Git Learning Hub aqui](https://git-learning-hub.vercel.app)
 
+<div align="center">
+
+[imagem](./assets/git-learning-hub2.gif)
+  
+</div>
+
 ## Arquitetura do Sistema
 
 O Git Learning Hub é projetado como uma **Single-Page Application (SPA)** com uma arquitetura de **frontend monolítico**. Toda a lógica da aplicação, renderização e gerenciamento de estado ocorrem no lado do cliente (navegador), o que simplifica o deployment e proporciona uma experiência de usuário altamente responsiva.
