@@ -30,6 +30,34 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
     }
   }, []);
 
+  const validateCommand = useCallback((userCommand: string, expectedCommand: string): boolean => {
+    // Remove espaços extras e normaliza
+    const normalizeCommand = (cmd: string): string => {
+      return cmd.toLowerCase()
+        .replace(/\s+/g, ' ')
+        .trim();
+    };
+
+    const userNormalized = normalizeCommand(userCommand);
+    const expectedNormalized = normalizeCommand(expectedCommand);
+    
+    // Validações específicas por tipo de comando
+    if (expectedNormalized.includes('git init')) {
+      return userNormalized === 'git init';
+    }
+    
+    if (expectedNormalized.includes('git add')) {
+      return userNormalized === 'git add .' || userNormalized === 'git add -a';
+    }
+    
+    if (expectedNormalized.includes('git commit')) {
+      return userNormalized.includes('git commit -m') && userNormalized.includes('"');
+    }
+    
+    // Validação genérica
+    return userNormalized === expectedNormalized;
+  }, []);
+
   const executeCommand = useCallback(() => {
     if (!command.trim() || !exercise) return;
 
@@ -75,35 +103,7 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
         terminal.scrollTop = terminal.scrollHeight;
       }
     }, 100);
-  }, [command, exercise, output, isCompleted, onCommandSuccess]);
-
-  const validateCommand = (userCommand: string, expectedCommand: string): boolean => {
-    // Remove espaços extras e normaliza
-    const normalizeCommand = (cmd: string): string => {
-      return cmd.toLowerCase()
-        .replace(/\s+/g, ' ')
-        .trim();
-    };
-
-    const userNormalized = normalizeCommand(userCommand);
-    const expectedNormalized = normalizeCommand(expectedCommand);
-    
-    // Validações específicas por tipo de comando
-    if (expectedNormalized.includes('git init')) {
-      return userNormalized === 'git init';
-    }
-    
-    if (expectedNormalized.includes('git add')) {
-      return userNormalized === 'git add .' || userNormalized === 'git add -a';
-    }
-    
-    if (expectedNormalized.includes('git commit')) {
-      return userNormalized.includes('git commit -m') && userNormalized.includes('"');
-    }
-    
-    // Validação genérica
-    return userNormalized === expectedNormalized;
-  };
+  }, [command, exercise, output, isCompleted, onCommandSuccess, validateCommand]);
 
   const clearTerminal = () => {
     setOutput([]);
