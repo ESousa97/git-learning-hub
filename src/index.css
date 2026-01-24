@@ -6,94 +6,93 @@
  * Global CSS styles are in styles/globals.css.
  */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-
-  body {
-    @apply antialiased text-gray-100;
-  }
+@theme {
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-family-sans: 'Inter', system-ui, sans-serif;
 }
 
-@layer components {
-  /* Button variants */
-  .btn {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium
-           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
-           disabled:opacity-50 disabled:cursor-not-allowed;
-  }
+html {
+  scroll-behavior: smooth;
+}
 
-  .btn-primary {
-    @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
-  }
+body {
+  @apply antialiased text-gray-100;
+}
 
-  .btn-secondary {
-    @apply bg-gray-700 text-white hover:bg-gray-600 focus:ring-gray-500;
-  }
+/* Button variants */
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg font-medium
+         transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
 
-  .btn-success {
-    @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
-  }
+.btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500;
+}
 
-  .btn-danger {
-    @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
-  }
+.btn-secondary {
+  @apply bg-gray-700 text-white hover:bg-gray-600 focus:ring-gray-500;
+}
 
-  .btn-ghost {
-    @apply bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white focus:ring-gray-500;
-  }
+.btn-success {
+  @apply bg-green-600 text-white hover:bg-green-700 focus:ring-green-500;
+}
 
-  /* Card variants */
-  .card {
-    @apply bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6;
-  }
+.btn-danger {
+  @apply bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+}
 
-  .card-interactive {
-    @apply card cursor-pointer transition-all duration-300
-           hover:bg-gray-800/70 hover:shadow-card-hover hover:-translate-y-1;
-  }
+.btn-ghost {
+  @apply bg-transparent text-gray-300 hover:bg-gray-800 hover:text-white focus:ring-gray-500;
+}
 
-  /* Input variants */
-  .input {
-    @apply w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg
-           text-white placeholder-gray-400
-           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
-           transition-colors duration-200;
-  }
+/* Card variants */
+.card {
+  @apply bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6;
+}
 
-  /* Badge variants */
-  .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
-  }
+.card-interactive {
+  @apply bg-gray-800/50 backdrop-blur-sm rounded-2xl p-6 cursor-pointer transition-all duration-300
+         hover:bg-gray-800/70 hover:-translate-y-1;
+}
 
-  .badge-success {
-    @apply bg-green-500/20 text-green-400 border border-green-500/30;
-  }
+/* Input variants */
+.input {
+  @apply w-full px-3 py-2 bg-gray-800 border border-gray-600 rounded-lg
+         text-white placeholder-gray-400
+         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
+         transition-colors duration-200;
+}
 
-  .badge-warning {
-    @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
-  }
+/* Badge variants */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+}
 
-  .badge-error {
-    @apply bg-red-500/20 text-red-400 border border-red-500/30;
-  }
+.badge-success {
+  @apply bg-green-500/20 text-green-400 border border-green-500/30;
+}
 
-  .badge-info {
-    @apply bg-blue-500/20 text-blue-400 border border-blue-500/30;
-  }
+.badge-warning {
+  @apply bg-yellow-500/20 text-yellow-400 border border-yellow-500/30;
+}
 
-  /* Progress bar */
-  .progress-bar {
-    @apply w-full bg-gray-700 rounded-full overflow-hidden;
-  }
+.badge-error {
+  @apply bg-red-500/20 text-red-400 border border-red-500/30;
+}
 
-  .progress-fill {
-    @apply h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full
-           transition-all duration-500 ease-out;
-  }
+.badge-info {
+  @apply bg-blue-500/20 text-blue-400 border border-blue-500/30;
+}
+
+/* Progress bar */
+.progress-bar {
+  @apply w-full bg-gray-700 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-blue-500 to-green-500 rounded-full
+         transition-all duration-500 ease-out;
 }
