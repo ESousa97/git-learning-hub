@@ -1,5 +1,5 @@
 import type { FC, Dispatch, SetStateAction } from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, startTransition } from 'react';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -40,9 +40,11 @@ const LessonViewer: FC<LessonViewerProps> = ({
   useEffect(() => {
     if (currentLesson) {
       const isCompleted = userProgress.completedLessons.includes(currentLesson.id);
-      setLessonCompleted(isCompleted);
-      setShowAnswer(false);
-      setSelectedAnswer(null);
+      startTransition(() => {
+        setLessonCompleted(isCompleted);
+        setShowAnswer(false);
+        setSelectedAnswer(null);
+      });
     }
   }, [currentLessonIndex, currentLesson, userProgress]);
 

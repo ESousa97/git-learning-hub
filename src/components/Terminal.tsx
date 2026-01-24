@@ -1,5 +1,5 @@
 import type { FC, KeyboardEvent } from 'react';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 import { Terminal as TerminalIcon, Play, RotateCcw, CheckCircle, AlertCircle, Lightbulb } from 'lucide-react';
 import type { Lesson } from '../data/lessons';
 
@@ -30,14 +30,15 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
     }
   }, []);
 
-  const executeCommand = () => {
+  const executeCommand = useCallback(() => {
     if (!command.trim() || !exercise) return;
 
+    const now = Date.now();
     const newOutput: TerminalOutput[] = [...output];
     newOutput.push({
       type: 'input',
       content: `$ ${command}`,
-      timestamp: Date.now()
+      timestamp: now
     });
 
     // Simula validação do comando
@@ -47,7 +48,7 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
       newOutput.push({
         type: 'success',
         content: exercise.expectedOutput,
-        timestamp: Date.now()
+        timestamp: now
       });
       
       if (!isCompleted) {
@@ -59,7 +60,7 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
       newOutput.push({
         type: 'error',
         content: `Comando incorreto. Tente novamente.`,
-        timestamp: Date.now()
+        timestamp: now
       });
       setAttempts(prev => prev + 1);
     }
@@ -74,7 +75,7 @@ const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) 
         terminal.scrollTop = terminal.scrollHeight;
       }
     }, 100);
-  };
+  }, [command, exercise, output, isCompleted, onCommandSuccess]);
 
   const validateCommand = (userCommand: string, expectedCommand: string): boolean => {
     // Remove espaços extras e normaliza
