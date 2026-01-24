@@ -1,4 +1,4 @@
-import React from 'react';
+import type { FC } from 'react';
 import { GitCommit, ArrowLeft, Trophy, Star, Zap } from 'lucide-react';
 import type { UserProgress } from '../types';
 
@@ -8,7 +8,7 @@ interface HeaderProps {
   userProgress: UserProgress;
 }
 
-const Header: React.FC<HeaderProps> = ({ currentView, onBackToHome, userProgress }) => {
+const Header: FC<HeaderProps> = ({ currentView, onBackToHome, userProgress }) => {
   return (
     <header className="bg-gray-900/80 backdrop-blur-md border-b border-gray-700 sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">

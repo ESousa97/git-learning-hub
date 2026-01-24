@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import type { FC, Dispatch, SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { 
   ArrowLeft, 
   ArrowRight, 
@@ -18,11 +19,11 @@ import Terminal from './Terminal';
 interface LessonViewerProps {
   moduleId: string;
   userProgress: UserProgress;
-  setUserProgress: React.Dispatch<React.SetStateAction<UserProgress>>;
+  setUserProgress: Dispatch<SetStateAction<UserProgress>>;
   onBackToHome: () => void;
 }
 
-const LessonViewer: React.FC<LessonViewerProps> = ({
+const LessonViewer: FC<LessonViewerProps> = ({
   moduleId,
   userProgress,
   setUserProgress,

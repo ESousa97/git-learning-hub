@@ -5,7 +5,7 @@ import ModuleCard from './components/ModuleCard';
 import LessonViewer from './components/LessonViewer';
 import ProgressDashboard from './components/ProgressDashboard';
 import type { UserProgress, Module } from './types';
-import './App.css';
+import './styles/globals.css';
 
 function App() {
   const [currentView, setCurrentView] = useState<'home' | 'module' | 'progress'>('home');

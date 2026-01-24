@@ -1,28 +1,14 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Trophy, Star, Zap, TrendingUp, Award, Target, Clock } from 'lucide-react';
 import { badges, tips } from '../data/lessons';
-
-interface UserProgress {
-  completedLessons: string[];
-  totalScore: number;
-  currentStreak: number;
-  badges: string[];
-}
-
-interface Module {
-  id: string;
-  title: string;
-  icon: React.ReactNode;
-  color: string; // Exemplo: "from-blue-500 to-blue-600"
-  lessons: number;
-}
+import type { UserProgress, Module } from '../types';
 
 interface ProgressDashboardProps {
   userProgress: UserProgress;
   modules: Module[];
 }
 
-const ProgressDashboard: React.FC<ProgressDashboardProps> = ({ userProgress, modules }) => {
+const ProgressDashboard: FC<ProgressDashboardProps> = ({ userProgress, modules }) => {
   const totalLessons = modules.reduce((sum: number, module: Module) => sum + module.lessons, 0);
   const completedLessons = userProgress.completedLessons.length;
   const progressPercent = (completedLessons / totalLessons) * 100;

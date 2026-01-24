@@ -1,22 +1,6 @@
-import React from 'react';
+import type { FC } from 'react';
 import { Lock, CheckCircle, Clock, Star } from 'lucide-react';
-
-interface Module {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  color: string;
-  difficulty: 'Iniciante' | 'Intermediário' | 'Avançado';
-  lessons: number;
-}
-
-interface UserProgress {
-  completedLessons: string[];
-  totalScore?: number;
-  currentStreak?: number;
-  badges?: string[];
-}
+import type { Module, UserProgress } from '../types';
 
 interface ModuleCardProps {
   module: Module;
@@ -24,7 +8,7 @@ interface ModuleCardProps {
   userProgress: UserProgress;
 }
 
-const ModuleCard: React.FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => {
+const ModuleCard: FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => {
   const completedLessons = userProgress.completedLessons.filter(
     (lesson: string) => lesson.startsWith(module.id)
   ).length;

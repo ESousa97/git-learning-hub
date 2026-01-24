@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import type { FC, KeyboardEvent } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, Play, RotateCcw, CheckCircle, AlertCircle, Lightbulb } from 'lucide-react';
 import type { Lesson } from '../data/lessons';
 
@@ -14,7 +15,7 @@ interface TerminalProps {
   isCompleted: boolean;
 }
 
-const Terminal: React.FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) => {
+const Terminal: FC<TerminalProps> = ({ lesson, onCommandSuccess, isCompleted }) => {
   const [command, setCommand] = useState<string>('');
   const [output, setOutput] = useState<TerminalOutput[]>([]);
   const [showHint, setShowHint] = useState<boolean>(false);
@@ -110,7 +111,7 @@ const Terminal: React.FC<TerminalProps> = ({ lesson, onCommandSuccess, isComplet
     setShowHint(false);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyPress = (e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       executeCommand();
     }
