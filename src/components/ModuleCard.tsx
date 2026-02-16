@@ -35,25 +35,18 @@ const ModuleCard: FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => 
 
   return (
     <div
-      className={`relative group cursor-pointer transition-all duration-300 ${
-        isUnlocked ? 'hover:scale-105' : 'opacity-60 cursor-not-allowed'
+      className={`relative group cursor-pointer rounded-2xl overflow-hidden transition-all duration-300 ${
+        isUnlocked ? 'hover:-translate-y-1' : 'opacity-60 cursor-not-allowed'
       }`}
       onClick={() => isUnlocked && onSelect(module.id)}
     >
       <div
         className={`
-          relative overflow-hidden rounded-2xl p-6 h-64
+          relative rounded-2xl p-5 md:p-6 min-h-[17rem] h-full
           bg-gradient-to-br ${module.color}
           shadow-lg group-hover:shadow-2xl transition-all duration-300
-          ${isUnlocked ? 'transform group-hover:-translate-y-2' : ''}
         `}
       >
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-white transform translate-x-16 -translate-y-16" />
-          <div className="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-white transform -translate-x-12 translate-y-12" />
-        </div>
-
         {/* Lock/Complete Status */}
         <div className="absolute top-4 right-4">
           {!isUnlocked ? (
@@ -69,10 +62,10 @@ const ModuleCard: FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => 
         <div className="mb-4 text-white">{module.icon}</div>
 
         {/* Module Info */}
-        <div className="relative z-10">
-          <h3 className="text-xl font-bold text-white mb-2">{module.title}</h3>
+        <div className="relative z-10 flex h-full flex-col">
+          <h3 className="text-lg md:text-xl font-bold text-white mb-2 leading-tight pr-8">{module.title}</h3>
 
-          <p className="text-white/90 text-sm mb-4 line-clamp-2">{module.description}</p>
+          <p className="text-white/90 text-sm mb-3 md:mb-4">{module.description}</p>
 
           {/* Difficulty Badge */}
           <div
@@ -85,7 +78,7 @@ const ModuleCard: FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => 
           </div>
 
           {/* Progress */}
-          <div className="space-y-2">
+          <div className="space-y-2 mt-auto">
             <div className="flex justify-between items-center text-white/90 text-sm">
               <span>
                 {completedLessons}/{module.lessons} lições
@@ -120,14 +113,10 @@ const ModuleCard: FC<ModuleCardProps> = ({ module, onSelect, userProgress }) => 
 
         {/* Hover Effect Overlay */}
         {isUnlocked && (
-          <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+          <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
         )}
       </div>
 
-      {/* Shine Effect */}
-      {isUnlocked && (
-        <div className="absolute inset-0 -top-2 -left-2 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 pointer-events-none" />
-      )}
     </div>
   );
 };

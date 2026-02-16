@@ -74,33 +74,33 @@ function App() {
         userProgress={userProgress}
       />
       
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto max-w-7xl px-4 py-8">
         {currentView === 'home' && (
           <div className="space-y-8">
             {/* Hero Section */}
-            <div className="text-center py-12">
+            <div className="text-center py-8 md:py-10">
               <div className="mb-6">
                 <GitCommit className="w-16 h-16 mx-auto text-blue-400 mb-4" />
-                <h1 className="text-5xl font-bold text-white mb-4">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
                   Git Learning <span className="text-blue-400">Hub</span>
                 </h1>
-                <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+                <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
                   Aprenda Git de forma interativa e divertida! 
                   Domine o controle de versão através de exercícios práticos.
                 </p>
               </div>
               
-              <div className="flex justify-center gap-4 mb-8">
+              <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-8">
                 <button 
                   onClick={() => handleModuleSelect('basics')}
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all transform hover:scale-105"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 md:px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all transform hover:scale-105"
                 >
                   <Play className="w-5 h-5" />
                   Começar Agora
                 </button>
                 <button 
                   onClick={() => setCurrentView('progress')}
-                  className="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all"
+                  className="bg-gray-700 hover:bg-gray-600 text-white px-6 md:px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition-all"
                 >
                   <Trophy className="w-5 h-5" />
                   Meu Progresso
@@ -109,7 +109,7 @@ function App() {
             </div>
 
             {/* Modules Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 md:gap-6">
               {modules.map((module) => (
                 <ModuleCard
                   key={module.id}
@@ -121,7 +121,7 @@ function App() {
             </div>
 
             {/* Features Section */}
-            <div className="bg-gray-800/50 rounded-2xl p-8 backdrop-blur-sm">
+            <div className="bg-gray-800/50 rounded-2xl p-6 md:p-8 backdrop-blur-sm">
               <h2 className="text-3xl font-bold text-white mb-6 text-center">
                 Por que aprender Git aqui?
               </h2>
